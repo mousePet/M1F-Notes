@@ -1,0 +1,1389 @@
+\section{Number Systems}
+
+We spoke a bout $\N$ and $\Z$. From now on we take $\N$ and $\Z$ for granted. 
+%The new problem sheet gives the formal mathematical contruction of $\Z$ from $\N$.
+Let us now talk about $\Q$, which is much harder to define than $\N$ or $\Z$. The reason for this is that $\Q = S/R$ and this leads to equalitie such as:
+\begin{align*}
+\frac 2 3 = \frac 6 9
+\end{align*}
+In fact, the symbol
+\begin{align*}
+\frac 2 3
+\end{align*}
+denotes the equivalence class of a pair $(2,3)$. 
+
+What we are aiming for is to take
+\begin{align*}
+S & = \Z \times (\Z \backslash \{0 \}) \\
+& = \{(a,b)|~ a \in \Z, b \in \Z \backslash \{0\} \}.
+\end{align*}
+We then want to define an equivalence relation $R$ on $S$ such that
+\begin{align*}
+S/R = \Q
+\end{align*}
+and then we can also write
+\begin{align*}
+[(a,b)] = \frac a b.
+\end{align*}
+Then it will make sense to say
+\begin{align*}
+\frac 2 3 = \frac 4 6 = \frac 6 9
+\end{align*}
+because this just means $(2,3) \sim (4,6)$.
+The equivalence relation can be defined as 
+\begin{align*}
+(a_1, b_1) \sim (a_2, b_2) \quad \Leftrightarrow \quad a_1 b_2 = a_2 b_1.
+\end{align*}
+Another approach is:
+\begin{align*}
+(a_1, b_1) \sim (a_1, b_2) \quad & \Leftrightarrow \quad \exists u,v \in \Z \backslash \{0\}: \\
+ua_1 & = va_2 \\
+ub_1 & = vb_2
+\end{align*}
+
+
+\begin{ec}
+	Show that the two approaches are equivalent.
+\end{ec}
+
+This is an equivalence relation:
+\begin{itemize}
+	\item Evidently,
+	\begin{align*}
+	(a, b) \sim (a, b).
+	\end{align*}
+	\item
+	Suppose $(a_1,b_1) \sim (a_2, b_2)$, i.e. $a_1 b_2 = a_2 b_1$. Then also $a_2, b_1 = a_1 b_2$ and $(a_2, b_2) \sim (a_1, b_1)$.
+	\item
+	Assume $(a_1, b_1) \sim (a_2, b_2)$, i.e. $a_1 b_2 = a_2 b_1$ and $(a_2, b_2) \sim (a_3, b_3)$, i.e. $a_2 b_3 = a_3 b_2$. Hence
+	\begin{align*}
+	& & a_1 b_2 b_3 & = a_2 b_1 b_3 = a_3 b_2 b_1 \\
+	& \Rightarrow & (a_1b_3 - a_3 b_1) b_2 & = 0 \\
+	& \Rightarrow & a_1 b_3 & = a_3 b_1
+	\end{align*}  
+	This means $(a_1, b_1) \sim (a_3, b_3)$.
+\end{itemize}
+
+\begin{df}
+	\begin{align*} 
+	\Q & = \{ \text{rational numbers} \} = S/ \sim  \\
+	[(a,b)] & = \frac a b 
+	\end{align*}
+\end{df}
+
+\subsection{Binary operations on $\Q$} 
+Define operations $\oplus$ and $\odot$ on $S = \Z \times (\Z \backslash \{0\})$
+\begin{align*}
+(a,b) \odot (p,q) & = (ap, bq) \\
+(a,b) \oplus (p,q) & = (aq + pq, bq) 
+\end{align*}
+
+
+\begin{pp}
+	Suppose
+	\begin{align*}
+	(a_1, b_1) & \sim (a_2, b_2) \\
+	\wedge \qquad (p_1, q_1) & \sim (p_2, q_2).
+	\end{align*}
+	Then
+	\begin{align*}
+	(a_1, b_1) \odot (p_1, q_1) \sim (a_2, b_2) \odot (p_2, q_2) \tag{1} \\
+	(a_1, b_1) \oplus (p_1, q_1) \sim (a_2, b_2) \oplus (p_2, q_2) \tag{2}
+	\end{align*}
+\end{pp}
+
+\begin{rt}
+	We can define operations on $\Q$:
+	\begin{align*}
+	\frac a b \cdot \frac p q & = \frac{ap}{bq} \\
+	\frac a b + \frac p q & = \frac{aq + bp}{bq}
+	\end{align*}
+\end{rt}
+
+\begin{proof}
+	(2) 
+	\begin{align*}
+	& & (a_1 q_1 + b_1 p_1, ~b_1 q_1) & \sim (a_2 q_2 + b_2 p_2, ~ b_2 q_2) \\
+	& \Leftrightarrow & (a_1 q_1 + b_1 p_1) \cdot (b_2 q_2) & \sim (a_2 q_2 + b_2 p_2) \cdot ( b_1 q_1) \\
+	& \Leftrightarrow & a_1 b_2 q_1 q_2 + p_1 q_2 b_1 b_2 & = a_2 b_1 q_1 q_2 + p_2 q_1 b_1 b_2
+	\end{align*}
+	Due to our assumption $(a_1, b_1) \sim (a_2, b_2)$ i.e. $a_1 b_2 = a_2 b_1$ and $(p_1 q_1) \sim (p_2, q_2)$, the equation above is true. This shows (2). (1) is left as an exercise.
+\end{proof}
+
+\begin{pr}
+	For all $a,b,c \in \Q$ the following holds:
+	\begin{enumerate}
+		\item
+		Commutativity of addition:
+		\begin{align*}
+		 a+b = b+a
+		\end{align*}
+		\item
+		Commutativity of multiplication:
+		\begin{align*}
+		\qquad ab = ba
+		\end{align*}
+		\item
+		Associativity of addition:
+		\begin{align*}
+		a+(b+c) = (a+b)+c
+		\end{align*}
+		\item
+		Associativity of multiplication:
+		\begin{align*}
+		a(bc) = (ab)c
+		\end{align*}
+		\item
+		Distributivity:
+		\begin{align*}
+		a(b+c) = ab+ ac
+		\end{align*}
+		\item
+		Existence of a neutral element of addition:
+		\begin{align*}
+		\exists 0 \in \Q: ~\forall x \in \Q \qquad x+ 0 = x
+		\end{align*}
+		\item
+		Existence of an inverse element of addition:
+		\begin{align*}
+		\forall x \in \Q ~\exists y \in \Q: \qquad x+ y = 0
+		\end{align*}
+		Notation: $y = -x$ and $x+(-y) = x-y$
+		\item
+		Existence of a neutral element of multiplication:
+		\begin{align*}
+		\exists 1 \in \Q: ~\forall x \in \Q \qquad x \cdot  1 = x
+		\end{align*}
+		\item
+		Existence of an inverse element of multiplication:
+		\begin{align*}
+		\forall x \in \Q ~ \exists y \in \Q: \qquad x y = 1
+		\end{align*}
+		Notation: $y = x^{-1}$ and $x(y^{-1}) = \frac x y$.
+		%for C as well
+		\item
+		$\Q$ has binary relations $<, >$ such that precisely one of the following alternatives holds:
+		\begin{align*}
+		a & > 0 \\
+		a & = 0 \\
+		0 & > a
+		\end{align*}
+		\item
+		\begin{align*}
+		a >0 \quad & \Leftrightarrow \quad 0  > -a \\
+		a >0 \quad & \Leftrightarrow \quad b+a  > b \\
+		(a >0 \wedge b > 0) \quad & \Leftrightarrow \quad ab > 0 
+		\end{align*}
+		\item
+		\emph{Archimedean Axiom}
+		\begin{align*}
+		\forall x \in \Q ~\exists N \in \N: \qquad N > x
+		\end{align*}
+	\end{enumerate}
+	All the properties hold for $\R$ as well and for $\C$ properties 1. to 9. hold.
+\end{pr}
+
+Everything that we know about $\Q$ follows from these properties.
+
+\begin{ex}
+	\begin{itemize}
+		\item 
+		Consider the very basic and well known property
+	\begin{align*}
+	\forall x \in \Q \qquad 0 \cdot x = 0 .
+	\end{align*}
+	\begin{proof}
+		Due to 2, 5, 6, 8 we get
+		\begin{align*}
+		1 \cdot x & = (0+1) \cdot x \\
+		& = 0 \cdot x + 1 \cdot x \\
+		& = 0 \cdot x +  x . 
+		\end{align*}
+		So for all $x \in \Q$
+		\begin{align*}
+		x = 0 \cdot x + x.
+		\end{align*}
+		We add $-x$ to both sides:
+		\begin{align*}
+		& & x + (-x) & = 0 \cdot x + x + (-x) \\
+		& \Leftrightarrow &  0 & = 0 \cdot x + 0 \\
+		& \Leftrightarrow &  0 & = 0 \cdot x.
+		\end{align*}
+	\end{proof}
+	\item
+	For all $x \in \Q$ either $x = 0$ or $x^2 > 0$ but not both.
+	\begin{proof}
+		There are 3 cases:
+		\begin{enumerate}
+			\item $x > 0$
+			\begin{align*}
+			x \cdot x = x^2  > 0
+			\end{align*}
+			\item $x = 0$
+			\begin{align*}
+			x = 0
+			\end{align*}
+			\item $0 > x$
+			\begin{align*}
+			-x > x + (-x) = 0
+			\end{align*}
+			We know
+			\begin{align*}
+			0 = 0 \cdot x = (1+ (-1)) \cdot x = x + (-1)x
+			\end{align*}
+			So $(-1) \cdot s$ is an additive inverse but since there is only one additive inverse it has to be equal to $-x$ (the proof of the uniqueness of additive inverses is left as an exercise).
+			
+			Furthermore, $(-1) \cdot (-1) = 1$ (the proof of that statement is also up to the reader). 
+			This finishes the proof:
+			\begin{align*}
+			(-x)^2 & = (-1) \cdot (-1) \cdot x \cdot x \\
+			& = x \cdot x
+			\end{align*}
+		\end{enumerate}
+	\end{proof}
+\end{itemize}
+\end{ex}
+
+\begin{df}
+	Let $a \in \R$, then the \emph{round up} of $a$ is the integer
+	\begin{align*}
+	[a] = \min \{ k \in \Z| ~ a \le k \}.
+	\end{align*}
+	Similarly, the \emph{round down} of $a$ is
+	\begin{align*}
+	[a] = \max \{ k \in \Z | ~ a \ge k \}.
+	\end{align*}
+\end{df}
+
+\begin{ec}
+	Show that the Archimedian axiom and the smallest element axiom ensure that the definitions are valid
+\end{ec}
+
+\begin{df}
+	We define the \emph{fractional part} $\{ a \}$ of $a$ as
+	\begin{align*}
+	a = [a] + \{ a \}, \\
+	0 \le \{a \} < 1
+	\end{align*}
+\end{df}
+
+\begin{df}
+	The \emph{absolute value} $|a|$ of a real number $a$ is defined as
+	\begin{align*}
+	|a| = \sqrt{a^2} = \left\{ \begin{array}{ll}
+	a, & a \ge 0 \\
+	-a, & a < 0
+	\end{array}
+	\right.
+	\end{align*}
+\end{df}
+
+The completeness axiom for $\R$.
+\begin{df}
+	Let $\emptyset \neq S \subseteq \R$. The largest element of $S$ written $M = \max(S)$ such that
+	\begin{align*}
+	M \in S \qquad \wedge \qquad \forall a \in S, \quad a \le M
+	\end{align*}
+\end{df}
+
+\begin{ex}
+	\begin{itemize}
+		\item
+		\begin{align*}
+		S = [0,1] \quad \Rightarrow \quad \max(S) = 1
+		\end{align*}
+		\item
+		\begin{align*}
+		S = [0,1) \quad \Rightarrow \quad \max (S)~ \text{does not exist}
+		\end{align*}
+		It is clear that we want to be looking at $x=1$ but unfortunately $1 \not\in S = [0,1)$.
+	\end{itemize}
+\end{ex}
+
+\begin{df}
+	Let $\emptyset \neq S \subseteq \R$. A real number $A \in \R$ is an \emph{upper bound} for $S$ if
+	\begin{align*}
+	\forall a \in S, \qquad a \le A
+	\end{align*}
+	We say that $S$ is bounded above is $S$ has an upper bound.
+\end{df}
+
+\begin{rk}
+	For $S = [0,1)$, $A=1$ is an upper bound but so is $A=2$. The upper bound is not unique.
+\end{rk}
+
+\begin{df}
+	Let $\emptyset \neq S \subseteq \R$. Suppose $S$ is bounded above. The \emph{supremum} or \emph{least upper bound} of $S$ is
+	\begin{align*}
+	\sup (S) & = \min (T), \\
+	T & = \{ A \in \R| ~ A~ \text{is an upper bound} \}
+	\end{align*}
+\end{df}
+
+\begin{ex}
+	Say that we are und $\Q$ instead.
+	\begin{align*}
+	S = \{ r \in \Q | ~r^2<2 \}
+	\end{align*}
+	does not have a maximum but neither does it have a supremum in $\Q$ (because this supremum would be $\sqrt 2 \not \in \Q$).
+\end{ex}
+
+\begin{ax}
+	\emph{Completeness Axiom} \\
+	Let $\emptyset \neq S \subseteq \R$ be bounded above. Then $S$ has a real supremum.
+\end{ax}
+
+Similarly, you can define \emph{lower bound}, \emph{bounded below}, \emph{infimum} or \emph{highest lower bound}.
+
+\begin{rt}
+	If $\emptyset \neq S \subseteq \R$ is bounded below, then 
+	$S$ has an infimum.
+\end{rt}
+
+\begin{proof}
+	Define
+	\begin{align*}
+	- S = \{-a | ~ a \in S \} \subseteq \R
+	\end{align*}
+	That $S$ is bounded below implies that $-S$ is bounded above and hence
+	\begin{align*}
+	\inf S = - \sup(-S)
+	\end{align*}
+\end{proof}
+
+
+
+\begin{lm}
+	Let $\emptyset \neq s \subseteq \R$. Then 
+	\begin{align*}
+	b = \sup S
+	\end{align*}
+	iff
+	\begin{enumerate}
+		\item
+		$b$ is an upper bound for $S$ and
+		\item
+		\begin{align*}
+		\forall \epsilon \in \R, \epsilon >0, ~\exists a \in S: \qquad b - \epsilon < a.
+		\end{align*}
+	\end{enumerate}
+\end{lm}
+
+\begin{proof}
+	For all $0<\epsilon\in\R, ~b-\epsilon$ is not an upper bound for $S$. \hfill $2^*$ \\
+	Obviously $2^*$ is equivalent to $2$. \\
+	For all $b' <b, ~ b$ is not an upper bound for $S$. \hfill $2 \dagger$ \\
+	Again, $2\dagger$ is evidently equivalent to $2^*$ and hence $2$. \\
+	So it is enough to prove Lemma$\dagger$, which is: 
+	
+	Let $\emptyset \neq S \subseteq \R$. Then
+	\begin{align*}
+	b = \sup S
+	\end{align*}
+	iff:
+	\begin{enumerate}
+		\item
+		$b$ is an upper bound for $S$. 
+		\item
+		$b'<b$ implies $b'$ is not an upper bound of $S$.
+	\end{enumerate}
+	Let us first prove the left-right-implication ($\Rightarrow$). We know if $b = \sup S$, then $B$ is an upper bound but $b$ is the smallest upper bound. Hence, $c$ is an upper bound implies $b \le c$, i.e. $c$ is not an upper bound if $c<b$. 
+	
+	The right-to-left implication is much similar. If $b$ is an upper bound and there is no upper bound smaller than $b$, then $b$ is the smallest upper bound.
+\end{proof}
+
+
+\begin{tm}
+	\begin{align*}
+		\forall y \in \R, y \ge 0, ~ \exists_1 x \in \R, x \ge 0: \qquad x^2 = y
+	\end{align*}
+	
+\end{tm}
+
+\begin{rk}
+	We will write $x = \sqrt y$. With similar ideas you can also construct $\sqrt[n] y$ for natural positive $n \in\N$.
+\end{rk}
+\begin{proof}
+	Let 
+	\begin{align*}
+	L = \{t \ge 0|~ t^2 \le y \}.
+	\end{align*}
+	Because $y \ge 0$, $0 \in L$. \hfill (1) \\
+	For $y<1$, $t>1$ implies $t^2>1>y$ and the set is bounded above by 1. \hfill (2.1) \\
+	For $y\ge 1$, $t>y$ implies $t^2 >y^2 \ge y$, t and the set is bounded above by $y$. \hfill (2.2) \\
+	By (2.1) and (2.2), $L$ is bounded above. \hfill (2) \\
+	By (1) and (2), $L$ has a supremum. Let
+	\begin{align*}
+		x = \sup \{t \le 0| t^2 \le y \}. \tag{$*$}
+	\end{align*}
+	By lemma 5.1, if $0\le x'<x$, then $x'$ is not an upper bound for $L$. Hence there exists a $t \in L$ with $x'<t$. Because of $t^2\le y$, we get $x'^2<t^2$. Writing $x'$ as $x-\epsilon$ we get
+	\begin{align*}
+	\forall \epsilon >0 \qquad (x-\epsilon)^2 \le y. 
+	\end{align*}
+	Note that always
+	\begin{align*}
+	& & x^2 - 2 \epsilon x & \le x^2 - 2 \epsilon x + \epsilon^2 = (x-\epsilon)^2 \le y .
+	\end{align*}
+	Therefore
+	\begin{align*}
+	\forall \epsilon >0, \qquad x^2-2\epsilon x & \le y. \tag 3
+	\end{align*}
+	Assume for contradiction that $x^2>y$. Choose 
+	\begin{align*}
+	\epsilon = \frac {x^2-y} {3x} < \frac {x^2-y} {2x}.
+	\end{align*}
+	This can be rewritten as
+	\begin{align*}
+	 x^2 - 2x \epsilon > y.
+	\end{align*}
+	This contradicts (3). Hence $x^2\le y$. \hfill (4)
+	
+	Suppose for contradiction $x^2 < y$. Pick 
+	\begin{align*}
+	\epsilon<\min \left\{ \frac{y-x^2}{2x+1},1 \right\}. \tag 5
+	\end{align*}
+	Then 
+	\begin{align*}
+	& & \epsilon & < \frac{y-x^2}{2x+1} \\
+	& \Leftrightarrow & \epsilon (2x+1) & < y-x^2 \\
+	& \Leftrightarrow & x^2+2\epsilon x + \epsilon & < y 
+	\end{align*} 
+	Due to (5), $\epsilon^2  \le \epsilon$ and thus
+	\begin{align*}
+	& & x^2+2\epsilon x + \epsilon^2 & < y \\
+	& \Leftrightarrow & (x+\epsilon)^2 & < y 
+	\end{align*}
+	But then $x$ is no upper bound for $L$. This contradicts $(*)$. Therefore $x \ge y$. \hfill (6) \\
+	(5) and (6) implies the theorem.
+\end{proof}
+
+Similarly, for all $k \in \N$ there exists one and only one $b \ge 0, b \in \R$ such that
+\begin{align*}
+	b^k = a.
+\end{align*}
+
+\begin{df}
+For $r = \frac p q\in \Q, r \ge 0, x \in \R, x\ge 0$  define
+\begin{align*}
+x^r = \left(\sqrt[q] x\right)^p.
+\end{align*}
+\end{df}
+
+\begin{rk}
+	This power is well defined. If $p' = up, q'=uq$ for some $u \in \N\backslash \{0\}$ we need to show
+	\begin{align*}
+	\left( \sqrt[q'] x \right) ^{p'} & = \left(\sqrt[q] x\right)^p \\
+	\left(\left( \sqrt[uq] x \right) ^{u}\right)^p & = \left(\sqrt[q] x\right)^p \\
+	\left( \sqrt[uq] x \right) ^{u} & = \sqrt[q] x 
+	\end{align*}
+	by uniqueness of $p^{th}$ roots. By uniqueness of $q^{th}$ roots:
+	\begin{align*}
+	\left( \left( \sqrt[uq] x \right) ^{u} \right)^q & =  x \\
+	\left( \sqrt[uq] x \right) ^{uq}  & =  x \\
+	\end{align*}
+	This holds by properties of the $(uq)^{th}$ root.
+\end{rk}
+
+\begin{pp}
+	Suppose $a,b \in \Q, x,y \in \R, a,b,x,y \ge 0$. Then 
+	\begin{enumerate}
+		\item
+		$\displaystyle x^a \cdot y^b = x^{a+b}$
+		\item
+		$x^a \cdot y^a = (xy)^a$
+		\item
+		$(x^a)^b = x^{ab}$
+	\end{enumerate}
+\end{pp}
+
+\begin{proof}
+	In the proof we take for granted the corresponding properties for integer powers. Prove 1:
+	\begin{align*}
+	a = \frac m n, & \qquad b = \frac p q \\
+	x^a \cdot x^b & = (\sqrt[n] x)^m \cdot (\sqrt[q] x)^p 
+	\end{align*}
+	Because $x^a$ is well defined, this is equal to
+	\begin{align*}
+	 (\sqrt[nq] x)^{nq} \cdot (\sqrt[nq] x)^{np}  
+	\end{align*}
+	Now we only have integer powers and can apply their properties. So we get
+	\begin{align*}
+	 (\sqrt[nq] x)^{mq+np} .
+	\end{align*}
+	And this is by definition $x^{a+b}$.
+	Finish 2 and 3 on your own.
+\end{proof}
+
+Now that we know about $<, \le$ and we know that $\sqrt[n] ~$ exists, we can go back and have a fresh look at some familiar procedures.
+
+
+\begin{ec}
+	Suppose $A,B \ge 0$ then
+	\begin{align*}
+	A \ge B \quad \Leftrightarrow \quad A^2>B^2
+	\end{align*}
+\end{ec}
+
+
+\begin{ex} 
+	\begin{itemize}
+	\item
+	Is $\sqrt 6 - \sqrt 2 > 1$? \\
+	Since $\sqrt 6 > \sqrt 2$ the question is equivalent to:
+	\begin{align*}
+	& & (\sqrt 6 - \sqrt 2)^2 & > 1 \\
+	& \Leftrightarrow &  6 - 2 \sqrt 6 \sqrt 2 + 2 & > 1 \\
+	& \Leftrightarrow &  8 & > 1+ 4\sqrt 3 \\
+	& \Leftrightarrow & 7 & > 4 \sqrt 3 \\
+	& \Leftrightarrow & 49 & > 16 \cdot 3 = 48
+	\end{align*}
+	Answer: Yes!
+	\item
+	Solve for $x \in \R$:
+	\begin{align*}
+	x > \frac 2{x+1}
+	\end{align*}
+	The question really asks to describe the set
+	\begin{align*}
+	\{ x \in \R| ~ x>\frac 2 {x+1} \}
+	\end{align*}
+	We have to discuss two cases
+	\begin{enumerate}
+		\item
+		$x+1 >0$ 
+		\begin{align*}
+		& & x^2 + x & >2  \\
+		& \Leftrightarrow & x^2 +x -2  & > 0 \\
+		& \Leftrightarrow & (x+2)(x-1) & > 0
+		\end{align*}
+		Either 
+		\begin{align*}
+		(x+2 > 0 \quad \wedge\quad  x-1 >0) \qquad \vee \qquad (x+2 < 0 \quad \wedge \quad x-1 >0)
+		\end{align*}
+		So $x >1$
+		% Picture?
+		\item 
+		$(x+1) <0$ 
+		\begin{align*}
+		& & x^2 + x & <2  \\
+		& \Leftrightarrow & (x+2)(x-1) & < 0
+		\end{align*}
+		Hence $-2<x<-1$. The final answer is 
+		\begin{align*}
+		\left\{ x \in \R|~ x> \frac 2 {x+1} \right\}  = (-2,-1) \cup (1, \infty)
+		\end{align*}
+	\end{enumerate}
+\end{itemize}
+\end{ex}
+
+
+
+\subsection{Decimal expansions of real numbers}
+We are all familiar with
+\begin{align*}
+\frac 1 3 =: 0.333\dots = 0. \overline{3}.
+\end{align*}
+What does this really mean?
+\begin{align*}
+\frac 1 3 & = 0.3 + 0.03 + 0.003 + \dots \\
+& =  3 \cdot 10^{-1} + 3 \cdot 10^{-2} + 3 \cdot 10^{-3} + \dots \\
+& = 4 \cdot 10^{-1} \left(1 + 10^{-1} + 10^{-2} + \dots \right)
+\end{align*}
+We all know
+\begin{align*}
+1+x+x^2+ \dots x^k = \frac{1-x^{k+1}}{1-x}
+\end{align*}
+If $0<x<1$. Then $x^k$ is getting smaller as $k$ grows. It makes sense sense to define 
+\begin{align*}
+1+x+x^2+x^3 + \dots = \sup \left. \left\{ \frac{1-x^k}{1-x} \right|~ k \in \N \right\}
+\end{align*}
+
+\begin{ec}
+	Show that this is equal to $\frac 1 {1-x}$.
+\end{ec}
+
+If we apply this to $x = \frac 1 {10}$ then 
+\begin{align*}
+= 3 \cdot \frac 1 {10} \cdot \frac 1 {1- \frac 1 {10}} = \frac 1 3
+\end{align*}
+
+Every real number has a decimal expansion and conversely every decimal expansion depicts a real number.
+\begin{align*}
+a.a_1 a_2 a_3 \dots 
+\end{align*}
+where $a \in \Z$ and $a_i \in \{0,1, \dots, 9\}$. Let $x \in \R$.
+\begin{align*}
+x = \lfloor x \rfloor + \{x\} \qquad \lfloor x \rfloor \in \Z, 0 \le \{x\} < 1 \\
+a:=x
+\end{align*}
+The idea is to zoom in on $\{x\}$ Devide up $[0,1)$ into 10 equal intervals.
+\begin{align*}
+\left[0, \frac 1 {10} \right), \left[\frac 1 {10}, \frac 2 {10} \right), \dots, \left[\frac 9 {10}, 1 \right)
+\end{align*}
+$\{x\}$ fall in precisely one of those intervals. %Image Zahlengerade? with zoom in on interval
+\begin{align*}
+\exists_1 a_1 \in \{0,1, \dots, 9\}: \qquad f_0 = \{x\} \in \left[ \frac{a_1} {10}, \frac{a_1}{10} + \frac 1 {10} \right) \\
+10 f_0 \in [a_1, a_1+1) \\
+10f_0 = \lfloor 10 f_0 \rfloor + \{10 f_0\} \\
+\{10 f_0\} = f_1
+\end{align*}
+$f_1 \in [0,1)$. Dividing $[0,1)$ into 10 equal intervals:
+\begin{align*}
+\left[0, \frac 1 {10} \right), \left[\frac 1 {10}, \frac 2 {10} \right), \dots, \left[\frac 9 {10}, 1 \right)
+\end{align*}
+$f_1 = \{ 10 f_0 \}$ falls into precisely one of those intervals. %another image?
+\begin{align*}
+\exists a_2 \in \{0,1, \dots 9\}: \qquad f_1 \in \left[ \frac{a_2} {10}, \frac{a_2}{10} + \frac 1 {10} \right) \\
+10 f_1 \in [a_2, a_2+1) \\
+10f_2 = \lfloor 10 f_2 \rfloor + \{ 10 f_2 \}
+\end{align*}
+We see that 
+\begin{align*}
+x = a.a_1 a_2 a_3 \dots
+\end{align*}
+where $a = [x]$ and the digits 
+\begin{align*}
+a_1, a_2, a_3, \dots \in \{0,1, \dots, 9 \}
+\end{align*}
+are determined inductively as
+\begin{align*}
+f_0 = \{x\} \qquad a_1 = \lfloor 10 f_0 \rfloor \\
+f_1 = \{10 f_0\} \qquad a_2 = \lfloor 10 f_1 \rfloor \\
+f_2 = \{10 f_1\} \qquad a_3 = \lfloor 10 f_2 \rfloor \\
+\dots \\
+x = a + \frac{a_1}{10} + \frac{a_2}{10^2} + \frac{a_3}{10^3} + \dots
+\end{align*}
+This expansion can be formally made as a supremum.
+
+\begin{rk}
+	By dividing the intervals in two instead of ten equal parts we obtain binary expansions,
+	\begin{align*}
+	a_k \in [0,1).
+	\end{align*}
+	Dividing into $n$ parts to get a $n$-ary expansion.
+\end{rk}
+
+\begin{ex}
+	\begin{align*}
+	\frac 2 7 = 0.\overline{285714} %written division
+	\end{align*}
+	there are several divisions by 7. The remainders that we get are all smaller than 7. Once we get a remainder that we have seen before, the calculation goes on repeatedly. The bar is a notation for periodic digits.
+\end{ex}
+
+\begin{tm}
+	Let $x \in \R$ then $x \in \Q$ iff the decimal expansion of $x$ is eventually periodic. (I.e.
+	\begin{align*}
+	x = a. a_1 \dots a_n \overline{a_{n+1} \dots a_{n+m}}
+	\end{align*}
+\end{tm}
+
+Application: We can construct many strange irrationals. For example
+\begin{align*}
+0.101001000100001\dots \not\in \Q
+\end{align*}
+
+\begin{proof}
+	Suppose $x = \frac p q \in \Q$. 
+	\begin{align*}
+	\frac p q & = \left\lfloor \frac p q \right\rfloor + \left\{ \frac p q \right\} \\
+	p & = aq + r \\
+	10r & = a_1 q + r_1, \qquad 0 \le r_1 < q \\
+	10 r_1 & = a_2 q + r_2 \\
+	10r_2 & = a_3 q + r_3 \\
+	\frac p q & = a. a_1 a_2 \dots
+	\end{align*}
+	$a_1, a_2, \dots$ are determined by the inductive rule. Because all $r_k \in \{0,1, \dots q \}$. After at most $q$ steps you will see a remainder that you have already seen. That shows $\Leftarrow$.
+\end{proof}
+
+\begin{rk}
+The length of the period is smaller or equal to $q-1$.
+\end{rk}
+
+If the decimal expansion is eventually periodic, then the real is rational.
+
+\begin{ex}
+	Let $x=0.\overline{b_1 \dots b_k}$, then
+	\begin{align*}
+	x & = \underbrace{b_1 b_2 b_3\dots b_k}_{\text{integer written in decimal}} \left( \frac 1 {10^k} + \frac 1 {10^{2k}} + \dots \right) \\
+	& = \frac{b_1\dots b_k}{10^k} \cdot \frac 1 {1-\frac 1 {10^n}} \in \Q
+	\end{align*}
+\end{ex}
+
+Decimal expansions are not unique.
+
+\begin{ex}
+	\begin{align*}
+	0.999\dots & = 1 \\
+	& = \frac 9 {10} \left(1 + \frac 1 {10} + \frac 1 {10^2} + \dots \right) \\
+	& = \frac 9 {10} \cdot \frac 1 {1-\frac 1 {10}} \\
+	& = 1
+	\end{align*}
+\end{ex}
+
+\begin{pp}
+	Suppose $x\in\R$ has two different decimal expansions.Then these are as follows:
+	\begin{align*}
+	x & = a_0.a_1 a_2 \dots a_n \overline 9 \qquad \text{with } a_n \le 8 \\
+	& = a_0.a_1 a_2 \dots a_{n-1} (a_n+1)
+	\end{align*}
+\end{pp}
+
+\begin{proof}
+	Suppose the two expressions are 
+	\begin{align*}
+	x & = a_0.a_1 \dots a_n a_{n+1} \dots \\
+	& = b_0.b_1 \dots b_n b_{n+1} \dots
+	\end{align*}
+	where $a_n \neq b_n$ and $a_i = b_i, i<n$. Without loss of generality assume $a_n < b_n$. Then
+	\begin{align*}
+	x & = a_0 . a_1 a_2 \dots a_n a_{n+1} \dots \\
+	& \le a_0. a_1 a_2 \dots a_n \overline 9 \\
+	& = a_0. a_1 a_2 \dots (a_n+1) \\
+	& \le a_0. a_1 a_2 \dots a_{n-1} b_n b_{n+1} \dots \\
+	& = x
+	\end{align*}
+	So equality holds everywhere.
+\end{proof}
+
+
+
+
+
+
+\subsection{The Complex Numbers}
+
+\begin{df}
+	Let the operations + and $\cdot$ be defined on $\R^2$ as follows:
+	\begin{align*}
+	(a,b) + (x,y) & = (a+x, b+y) \\
+	(a,b) \cdot (x,y) & = (ax-by, ay+bx).
+	\end{align*}
+	Then we call the triple $(\R^2, +, \cdot) =\C$ the complex numbers.
+\end{df}
+
+\begin{rk}
+The two operations satisfy the same axioms as $\Q$ and $\R$ but there is no meaningful order relation $<$.
+\end{rk}
+
+We think of $\R$ as a subset of $\C$:
+\begin{align*}
+\R & \to \C \quad \text{injective} \\
+x & \mapsto (x,0)
+\end{align*}
+The operations on $\C$ are compatible with the ones on $\R$:
+\begin{align*}
+\forall x,y \in \R \qquad x+y \mapsto (x+y,0) = (x,0) + (y,0)
+\end{align*}
+This can be done similarly with multiplication. Furthermore
+\begin{align*}
+(0,1) \cdot (0,1) = (-1,0) = -1
+\end{align*}
+\begin{df} We define
+	\begin{align*}
+	(0,1) = i.
+	\end{align*}
+\end{df}
+Then we can take any complex number:
+\begin{align*}
+(a,b) & = a(1,0) + b(0,1) \\
+& = a +bi
+\end{align*}
+This is also called the "Cartesian form" of a complex number.
+
+\begin{ex}
+	\begin{align*}
+	(a+bi) (x+yi) & = ax+ ayi + bxi+ byi^2 \\
+	& = (ax-by) +(ay+bx)i \\
+	& = (ax-by, ay+bx) 
+	\end{align*}
+\end{ex} 
+
+We like to paint complex numbers on the Cartesian plane. %image coordinate system i, 1, (a,b) = a+bi
+
+More terminology and notation: If $z=a+bi \in \C, a,b\in \R$. then
+\begin{df}
+	Let $z=a+bi \in \C$. Then the \emph{conjugate} of $z$ is defined as
+	\begin{align*}
+	\overline z = a-bi.
+	\end{align*}
+\end{df}
+\begin{df}
+	Let $z=a+bi \in \C$. Then the \emph{imaginary part} of $z$ is defined as
+	\begin{align*}
+	\operatorname{Re} z = \frac{z+\overline z} 2 \in \R.
+	\end{align*}
+\end{df}
+\begin{df}
+	Let $z=a+bi \in \C$. Then the \emph{real part} of $z$ is defined as
+	\begin{align*}
+	\operatorname{Im} z = \frac{z-\overline z}{2i}\in \R.
+	\end{align*}
+\end{df}
+\begin{df}
+	Let $z=a+bi \in \C$. Then the \emph{modulus} of $z$ is defined as
+	\begin{align*}
+	|z| = \sqrt{a^2+b^2} = \sqrt{z\overline z} \in \R.
+	\end{align*}
+\end{df}
+
+
+\begin{pp}
+	\begin{align*}
+	(|z| \ge 0 \wedge |z| = 0) \quad & \Leftrightarrow\quad z = 0 \\
+	|zw| & = |z| \cdot|w| \\
+	|z + w| & \le |z| + |w| \quad \text{triangle inequality}
+	\end{align*}
+\end{pp}
+
+\begin{ec}
+	The proof of these statements is left to the reader.
+\end{ec}
+
+Addition of complex numbers is the same as addition of vectors in $\R^2$ and it can be pictured as a parallelogram (or triangle). Geometrically, the modulus of a number is then the length of this vector or the distance from the origin to the point $z$ in the complex plane. Hence, the triangle inequality can be interpreted as
+\begin{align*}
+= \text{distance} (0,z+w) \le \text{distance} (0,z) + \text{distance} (0,w)
+\end{align*}
+
+%picture complex plane w, z draw vectors to points and complete to parallelogram with z+w
+
+\begin{ex}
+	\begin{qu}
+		Express 
+		\begin{align*}
+		\frac{1+i}{1-2i}
+		\end{align*}
+		in Cartesian form.
+	\end{qu}
+	
+	\begin{an}
+	If $z \neq 0$ then $|z| >0$ so 
+	\begin{align*}
+	1 = \frac{|z|^2}{|z|^2} = \frac{z \overline z}{|z|^2}
+	\end{align*}
+	i.e.
+	\begin{align*}
+	\frac 1 z & = \frac{\overline z}{|z|^2} \\
+	\frac 1 {1-2i} & = \frac{1+2i}{5} \\
+	\frac{1+i}{1-2i} & = \frac{(1+i)(1+2i)} 5 \\
+	& = -\frac 1 5 + \frac{3i} 5 
+	\end{align*}
+	\end{an}
+\end{ex}
+
+
+\subsection{Polar Form of Complex Numbers}
+The \emph{polar form} allows one to visualize multiplication of complex numbers. (Whereas the Cartesian form allows to visualize addition.) We encode our complex number by $|z| = r\ge 0$ and an angle $\theta$.
+%picture with complex plane and r and angle
+
+$r$ and $\theta$ are then called the polar coordinates of $z \in \C$. 
+If $z \neq 0$, we can choose $\theta$ uniquely in $[0,2\pi)$. We can also choose $\theta$ uniquely in the interval $[-\pi,\pi)$. (Allowing $r<0$ you may restrict further, $\theta \in \left[ -\frac \pi 2, \frac \pi 2 \right)$ ).
+
+Sometimes it is better not to choose and take $\theta \in \R/2\pi\Z$.
+\begin{align*}
+\theta_1 \sim \theta_2 \qquad \Leftrightarrow \qquad \exists k\in \Z \quad \theta_1 = \theta_2 + 2\pi k
+\end{align*}
+We can do all these things depending on the context. As we identified $\Z/N\Z = \{k|~ 0\le k <N \}$, we identify $\R/2\pi \Z = \{\theta \in \R|~ 0\le \theta < 2\pi \}$ (or sometimes $\{\theta \in \R|~ -\pi\le \theta < \pi \}$.)
+
+\begin{df}
+	For $\theta \in \R$ (or $\R/2\pi \Z$) we define
+	\begin{align*}
+	e^{i\theta} = \cos \theta + i \sin \theta
+	\end{align*}
+\end{df}
+
+\begin{rk}
+	For $z = x+iy \in \C, ~e^z = e^x e^{iy}$.
+\end{rk}
+
+\begin{pp}
+$e^x$ is a group homomorphism:
+\begin{align*}
+& e^x: & (\C, +) & \to (\C \backslash \{0\}, \cdot) \\
+& \forall z,w \in \C & e^{z+w} & = e^ze^w
+\end{align*}
+\end{pp}
+
+\begin{proof}
+\begin{align*}
+e^{i\theta_1 \theta_2} & = \cos(\theta_1+\theta_2) + i \sin (\theta_1 \theta_2) \\
+e^{i\theta_1} e^{i\theta_2} & = (\cos \theta_2 + i \sin \theta_2)(\cos \theta_2 + i \sin \theta_2) \\
+& = (\cos \theta_2 \cos \theta_2 - \sin \theta_1 \sin \theta_2) + i (\cos \theta_1 \sin \theta_2 + \sin \theta_1 \cos \theta_2
+\end{align*}
+This is exactly the content of the addition formulas for cosine and sine.
+\end{proof}
+
+\begin{rk}
+	\begin{align*}
+	& & e^{i\theta_1} & = e^{i\theta_2} \\
+	& \Leftrightarrow & cos \theta_1 & = \cos \theta_2 \\
+	& & \wedge \quad \sin \theta_1 & = \sin \theta_2 \\
+	& \Leftrightarrow & \theta_1 & = \theta_2 \qquad \mod 2 \pi \\
+	& \Leftrightarrow & \exists k \in \Z: \qquad \theta_1 & = \theta_2 + 2 \pi
+	\end{align*}
+\end{rk}
+
+\begin{df}
+$\theta$ is called the argument (also arg) of z.
+\end{df}
+
+
+An alternative approach to complex numbers are the conversion formulas.
+\begin{align*}
+x & = r \cos \theta \\
+y & = r \sin \theta \tag{$*$}\\
+r & = \sqrt{x^2+y^2} \\
+\theta & = \tan^{-1} \frac y x \tag{$\dagger$}
+\end{align*}
+These conversion formulas define an invertible function
+\begin{align*}
+\R_{>0} \times \R/2\pi\Z \quad \overset{(*)}{\to} \quad \R^2\backslash\{(0,0)\} 
+\end{align*}
+where the inverse function is defined by $(\dagger)$.
+
+\begin{tm}
+	\emph{De Moivre's formula} \\
+	When one multiplies two complex numbers $z_1, z_2 \in \C$, the modulus multiplies and the arguments add:
+	\begin{align*}
+	\left(z_1= r_1 e^{i\theta_1} \quad \wedge \quad z_2 = r_2 e^{i\theta_2}\right) \qquad \Rightarrow \qquad z_1 \cdot z_2 = r_1 r_2 e^{i(\theta_1 + \theta_2)}
+	\end{align*}
+\end{tm}
+
+
+\subsection{Roots of Unity}
+The roots of unity are solutions of the equation
+\begin{align*}
+z^n = 1 \qquad n \in \N, z \in \C.
+\end{align*}
+Writing $z = re^\theta$ in polar form gives us
+\begin{align*}
+& &r^n e^{n\theta} & = 1 \\
+& \Rightarrow & r & = 1 \\
+& & \wedge \quad n\theta & \equiv 0 \mod 2\pi.
+\end{align*}
+I.e.
+\begin{align*}
+\exists k \in \Z: \qquad \theta = \frac{2\pi k}{n} \tag{$*$}
+\end{align*}
+Hence we can define a function $f$ with
+\begin{align*}
+f: \quad \Z/n\Z & \to \C \\
+[k] & \mapsto e^{i \frac {2\pi k}{n}}. 
+\end{align*}
+$f$ is injective:
+\begin{align*}
+& & e^{i \frac {2\pi k}{n}} & = e^{i \frac {2\pi l}{n}} \\
+& \Leftrightarrow & \frac {2\pi k}{n}  & \equiv \frac {2\pi l}{n} \mod 2 \pi \\
+& \Leftrightarrow & k  & \equiv l \mod \Z/n\Z
+\end{align*}
+Furthermore, we know
+\begin{align*}
+& \forall [k] \in \Z/n\Z: & (f([k]))^n & = \left(e^{i \frac{2 \pi k} n} \right)^n = 1 \\
+& \Rightarrow & \image(f) & \subseteq \{z| ~z^n=1 \}
+\end{align*}
+Because of $(*)$ equality holds. Thus, $f$ is bijective.
+
+\begin{df}
+	For $k=\Q, \R, \C, \Z/p\Z, p$ prime define
+	\begin{align*}
+	k[x]
+	\end{align*}
+	as the set of polynomials in $x$ with coefficients in $k$. A polynomial $p(x) \in k[x]$ can be written as 
+	\begin{align*}
+	p(x) = a_0 + a_1 x + \dots + a_n x^n, \qquad a_0, a_1, \dots, a_n \in k.
+	\end{align*}
+	We call $n$ the \emph{degree} of $k[x]$.
+\end{df}
+
+Compare $\Z$ to $k[x]$:
+\begin{center}
+\begin{tabularx}{\textwidth}{XX}
+	\toprule
+	Division algorithm in $\Z$ & Degree of $p(x) \in k(x)$ \\
+	\toprule
+	$ \forall a,b \in \Z$ & $ \forall A(x),B(x) \in k[x]$  \\
+	$\exists q,r \in \Z, r<a:$ & $\exists Q(x),R(x) \in k[x], \operatorname{degree}(R(x))<\operatorname{degree}(A(x))$ \\
+	$\displaystyle \frac a b = q + \frac r b$ & $\displaystyle \frac{A(x)}{B(x)} = Q(x) + \frac{R(x)}{B(x)}$ \\
+	\midrule
+	$c = \hcf(a,b)$ & $C(x) = \hcf(A(x),B(x))$ \\
+	$\Rightarrow \exists y,z \in \Z: \qquad ay+bz = c$ & $ \Rightarrow \exists Y(x), Z(x) \in k[z]: \qquad A(x) Y(x) + B(x) Z(x) = C(x)$  \\
+	prime is equivalent to irreducible & prime is equivalent to irreducible \\
+	unique prime factorization & unique prime factorization \\ 
+	\bottomrule
+\end{tabularx}
+\end{center}
+
+
+\begin{pp}
+	Let $\omega = e^{\frac{2\pi \theta}{n},~n>1}$. Then
+	\begin{align*}
+	1+\omega+ \omega^2 + \dots + \omega^{n-1} = 0 .
+	\end{align*}
+	I.e. the sum of all $n^{th}$ roots of one equals 0.
+\end{pp}
+
+\begin{proof}
+	Let 
+	\begin{align*}
+	z = 1+ \omega + \omega^2 + \dots + \omega^{n-1}.
+	\end{align*}
+	then $\omega  z = z$. Hence,
+	\begin{align*}
+	& & (1-\omega) z & = 0 \\
+	& \Rightarrow & z & =0
+	\end{align*}
+\end{proof}
+
+
+Alternatively we could have used the polynomial identity:
+\begin{align*}
+1+x+x^2+ \dots +x^{n-1} = \frac{1-x^n}{1-x}
+\end{align*}
+and plugged in $x= \omega$.
+
+\subsection{Polynomial equations}
+
+\begin{tm}
+	\emph{Fundamental Theorem of Algebra} \\
+	Any polynomial $P(z) \in \C[z]$ of degree $n \ge 1$,
+	\begin{align*}
+	P(z) = a_n z^n + a_{n-1} z^{n-1} + \dots + a_0, \qquad a_n \neq 0
+	\end{align*} 
+	has a root $\lambda \in \C$. I.e.
+	\begin{align*}
+	\exists \lambda \in \C: \qquad P(\lambda) = 0.
+	\end{align*}	
+\end{tm}
+ 
+\begin{pp}
+	For $P(z)$ as above, there are $\lambda_1, \dots, \lambda_n \in \C$ such that
+	\begin{align*}
+	P(z) = a_n (z-\lambda_1) \dots (z-\lambda_n).
+	\end{align*}
+	That means that the equation $P(z)=0$ has $n$ solutions $\lambda_1, \dots, \lambda_n \in \C$ which may appear repeatedly.
+\end{pp}
+
+We know long division of polynomials
+\begin{align*}
+\forall A(x), B(x) \in k[x], \exists Q(x), R(x) \in k[x]: \qquad A=BQ+R
+\end{align*}
+
+\begin{rk}
+	We can use long division to 
+	\begin{itemize}
+		\item 
+		find $\hcf(A(x),B(x)) \in k[x]$.
+		\item
+		express the hcf in the form $AP+BQ$ for some $P(x), Q(x) \in k[x]$.
+	\end{itemize}
+\end{rk}
+
+\begin{proof}
+	Suppose $P(\lambda) = 0$. Divide $(z-\lambda)$ into P:
+	\begin{align*}
+	P(z) = Q(z)(z-\lambda) +R(z) \tag{$*$}
+	\end{align*}
+	The degree of $R$ is strictly smaller than the degree of $z-\lambda$ so $R$ has to be a constant. Evaluating $(*)$ at $\lambda$ gives us
+	\begin{align*}
+	0 & =P(\lambda) = Q(\lambda) \cdot 0 + R \\
+	\Rightarrow \qquad R & =0
+	\end{align*}
+	So
+	\begin{align*}
+	P(z) = Q(z)(z-\lambda)
+	\end{align*}
+	By induction on $n$
+	\begin{align*}
+	Q_{n-1}(z) = \prod_{i=1}^{n-1} (z-x_i).
+	\end{align*}
+\end{proof}
+
+The proposition essentially states that the primes in $\C[z]$ are precisely the degree 1 polynomials
+\begin{align*}
+P(z) = z-\lambda, \qquad \lambda \in \C.
+\end{align*}
+
+\begin{ex}
+	Split 
+	\begin{align*}
+	p(z) = z^7 -z^6 -2z^4+2z^3+z-1 \in \C[z]
+	\end{align*}
+	into degree one factors.
+	\begin{align*}
+	p(z) & = (z-1)(z^6-2z^3+1) \\
+	& = (z-1)(z^3-1)^2 \\
+	& = (z-1)^3(z^2+z+1)^2
+	\end{align*}
+	To split $z^2+z+1$, we need the cube roots of 1.
+	\begin{align*}
+	(z-1)^3 \left(z+\frac 1 2 + i\frac{\sqrt3} 2 \right)^2 \left(z+\frac 1 2 - i\frac{\sqrt3} 2 \right)^2
+	\end{align*}
+\end{ex}
+
+\begin{pp}
+	Suppose
+	\begin{align*}
+	P(x) \in \R[x]
+	\end{align*}
+	Then $P(x)$ can be written as a product of degree 1 and degree 2 polynomials.in $\R[x]$. The degree 2 polynomials have each 2 complex conjugate roots and they are prime/irreducible in $\R[x]$.
+\end{pp}
+
+The proof is based on two ideas:
+\begin{enumerate}
+	\item 
+	Suppose $\lambda \in \C$ and $P(\lambda) = 0$. Then 
+	\begin{align*}
+	P\left( \overline{\lambda} \right) = 0
+	\end{align*}
+	\item
+	If $\lambda \in \C$ then
+	\begin{align*}
+	(x- \lambda)(x-\overline \lambda) = x^2 -\left(\lambda+\overline \lambda\right) x + \lambda \overline \lambda \quad \in \R[x]
+	\end{align*}
+\end{enumerate}
+
+\subsection{Roots and coefficients of algebraic equations}
+The coefficients of a polynomial are related to its roots in the following way:
+\begin{align*}
+(z-\lambda_1)(z-\lambda_2) \dots (z-\lambda_n) = z^n a_{n-1} + z^{n+1} + \dots + a_0
+\end{align*}
+where
+\begin{align*}
+a_{n-1} & = -(\lambda_1 + \dots \lambda_n) \\
+a_{n-2} & = \sum_{i<j} \lambda_i \lambda_j \\
+a_{n-3} & = \sum_{i<j<n} \lambda_i \lambda_j \lambda_n \\
+\dots & \qquad .
+\end{align*}
+
+\begin{nex}
+	\item
+	Find a cubic polynomial with roots $\lambda_1 = 1,~ \lambda_2 = 1+i$, and  $\lambda_3 = 1-i$.
+	\begin{align*}
+	z^3 - 3z^2 + (1+i+1-i+2)z - 2 = z^3-3z^2 + 4z -2
+	\end{align*}
+	\item
+	Write $\lambda, \mu$ for the roots of
+	\begin{align*}
+	ax^2+bx+c.
+	\end{align*}
+	Write down an equation with roots $\lambda^2, \mu^2$.
+	\begin{align*}
+	6x^2+\frac b a x + \frac c a = (x-\lambda)(x-\mu) \\
+	\lambda + \mu = -\frac b a \\
+	\lambda\mu = \frac c a
+	\end{align*}
+	We are interested in:
+	\begin{align*}
+	(x-\lambda^2)(x-\mu^2) = x^2 -(\lambda^2+\mu^2)x + \lambda^2\mu^2.
+	\end{align*}
+	So we are interested in $\lambda^2+\mu^2, \lambda^2\mu^2$. 
+	\begin{align*}
+	\lambda^2\mu^2 & = (\lambda\mu)^2 \\
+	& = \frac{c^2}{a^2} \\
+	\lambda^2+\mu^2 & = (\lambda+\mu)^2 - 2 \lambda\mu \\
+	& = \frac {b^2}{a^2} - \frac{2c} a
+	\end{align*}
+	So the equation we are looking for is:
+	\begin{align*}
+	x^2+ \left(\frac{2c}{a} - \frac{b^2}{a^2} \right) x + \frac{c^2}{a^2}.
+	\end{align*}
+	or, tidying up
+	\begin{align*}
+	x^2x^2 + (2ac-b^2)x + c^2=0.
+	\end{align*}
+\end{nex}
+
+\subsubsection{Equations of degree 3}
+Everybody knows the quadratic formula:
+\begin{align*}
+ax^2+bx+c=0.
+\end{align*}
+Then 
+\begin{align*}
+x= \frac{-b\pm\sqrt{b^2-4ac}}{2a}.
+\end{align*}
+
+Now we are going to find a formula to similarly compute roots of equations of degree 3. Let's start with
+\begin{align*}
+& & x^3 +Ax^2 + Bx + C & =0. \tag{$*$}
+\end{align*}
+By taking $y= \alpha=\frac A 3$ we can get rid of the term $Ax^2$:
+\begin{align*}
+y^2 = \left( x +\frac A 3 \right)^3 = x^3 + Ax^2 + \frac{A^2} 3 x+ \frac{A^3}{27}
+\end{align*}
+Then we get a simpler equation for $(*)$ in $y$:
+\begin{align*}
+(*) & \Leftrightarrow & \left( x +\frac A 3 \right)^3 +Bx -\frac{A^2} 3 x + C- \frac{A^3}{27} & = 0 \\
+& \Leftrightarrow & \left( x +\frac A 3 \right)^3 + \left(B- \frac{A^2} 3\right) \left(x+\frac A 3\right) - \frac A 3 \left(B- \frac{A^2} 3 \right) + C- \frac{A^2}{27} & = 0 \\ 
+& \Leftrightarrow & y^3 + \left( B-\frac{A^2} 3 \right) y + C- \frac{AB} 3 + \frac{2A^3}{27} & = 0
+\end{align*}
+Therefore, we can write our equation in the form
+\begin{align*}
+y^3+3py +2q =0.
+\end{align*}
+We look for a solution $y = u+v$. \hfill (1) \\
+Then
+\begin{align*}
+ y^3 & = 3uv(u+v) +u^3+v^3
+\end{align*}
+We try
+\begin{align*}
+uv & = -p \quad \Leftrightarrow \quad u^3 v^3 = -p\\
+u^3+v^3 & = -2q
+\end{align*}
+Then $u^3, v^3$ are the two roots of the quadratic equation:
+\begin{align*}
+x^2 + 2qx - p^3 = 0
+\end{align*}
+The quadratic formula gives:
+\begin{align*}
+u^3, v^3 = -q \pm \sqrt{p^2+q^3} \tag 2
+\end{align*}
+So putting (1) and (2) together:
+\begin{align*}
+y = \sqrt[3]{-q + \sqrt{q^2+p^3}} + \sqrt[3]{-q-\sqrt{q^2+p^3}}
+\end{align*}
+
+\begin{rk}
+	We seem to have 9 roots! But remember $uv=-p$ The tells us how to pair up the cube roots to get just 3 roots. We may also rewrite the formula as:
+	\begin{align*}
+	y = \sqrt[3]{-q \sqrt{q^2+p^3}} - \frac p {\sqrt[3]{-q + \sqrt{q^2+p^3}}}
+	\end{align*}
+\end{rk}
+
+
+\begin{nex}
+	\item
+	Solve for $y$:
+	\begin{align*}
+	& & y^3-y+1 & = 0 \\
+	& \Leftrightarrow & y & = \sqrt[3]{-\frac 1 2 + \sqrt{\frac 1 4 - \frac 1 {27}}} + \sqrt[3]{-\frac 1 2 - \sqrt{\frac 1 4 - \frac 1 {27}}} \\
+	& & & = \sqrt[3]{-\frac 1 2 + \frac 1 6 \sqrt{\frac{27} 9}} + \sqrt[3]{-\frac 1 2 - \frac 1 2 \sqrt{\frac{27} 9 }} 
+	\end{align*}
+	You get one solution by taking real cube roots in this formula. The two other (complex conjugated) solutions are:
+	\begin{align*}
+	\rho \sqrt[3]{-\frac 1 2 + \frac 1 4 \sqrt{\frac{23} 3 }} + \rho^2 \sqrt[3]{- \frac 1 2 - \frac 1 6 \sqrt{ \frac{23} 3}} 
+	\end{align*}
+	where $\rho = -\frac 1 2 + i \frac{\sqrt 3} 2$.
+	\item
+	Suppose you try to find a decent formula for $\cos \frac \pi 9$.
+	\begin{align*}
+	e^{\frac{\pi i}{9}} = x + iy
+	\end{align*}
+	then $x = \cos \frac \pi 9, y = \sin \frac \pi 9$. 
+	\begin{align*}
+	(x+iy)^3 & = x^3 - 3xy + (3x^2y-y^3)i \\
+	& = e^{\frac{\pi i} 3} = \frac 1 2 + \frac{i \sqrt 3}{2} \\
+	y^2 & = 1-x^2
+	\end{align*}
+	equation $4-x^3 -3x - \frac 1 2 =0$. The cubic formula:
+	\begin{align*}
+	x = \sqrt[3]{\frac 1 {16} + \frac{i}{16} \sqrt 3 } + \sqrt{\frac 1 {16} - \frac i {16} \sqrt 3} \\
+	= \frac 1 2 \left(\sqrt[3]{\frac 1 2 + \frac{i \sqrt 3} 2} + \sqrt[3]{\frac 1 2 - \frac{i\sqrt 3} 2} \right) 
+	\end{align*}
+	The cubic formula tells me to find $\sqrt[3]{\frac 1 2 + i \frac{\sqrt 3} 2}$ but this is what we were trying to find from the start. Conclusion: in this case the cubic formula is useless.
+\end{nex}
+
+\subsection{Infinite Sets}
+
+\begin{df}
+	A set $S$ is countable iff there exists a bijective function $f: \N \to S$.
+\end{df}
+
+Basically this means that we can list all the elements of $S$:
+\begin{align*}
+S = \{ S_1, S_2, S_3, \dots \}
+\end{align*}
+(More formally $S_n = f(n)$.) Any countable set is infinite.
+We want to learn how to prove that some sets are countable.
+\begin{pp}
+	Suppose $S \subseteq \N$ is infinite. Then $S$ is countable.
+\end{pp}
+
+\begin{proof}
+	Informally speaking:
+	Take $S_1 = \min S$. Take $S_2$ to be the next element of $S$:
+	\begin{align*}
+	S_2 & = \min S \backslash \{S_1 \} \\
+	S_3 & = \min S \backslash \{S_2 \} \\
+	\dots &
+	\end{align*}
+	Now formally, we define a function $f: \N \to S$ inductively as follows:
+	\begin{align*}
+	f(1) = \min S
+	\end{align*}
+	and assume $f(k)$ to be defined for $k<n$. Then define
+	\begin{align*}
+	f(n) = \min S \backslash \{ f(1), \dots, f(n-1) \}
+	\end{align*}
+	Then we want to show that $f$ is injective and surjective.
+\end{proof}
+
+\begin{nex}
+	\item
+	$\Z$ is countable.
+	\begin{proof}
+		Define 
+		\begin{align*}
+		f(n) = \left\{ \begin{array}{rl}
+		\frac n 2, &n \text{ even} \\
+		-\frac {n+1} 2, & n \text{ odd}
+		\end{array} \right. .
+		\end{align*}
+		Then $f: \N \to S$ is bijective. (Now we have to write down a function $g$ which is the inverse of $S$.)
+	\end{proof}
+	\item
+	Suppose $A, B$ are countable sets. Then $A \times B$ is countable.
+	\begin{proof}
+		It is enough to show that $\N \times \N$ is countable. I can see that $\N \times \N$ is countable by picture.
+		%picture of grid
+		Note: the picture is quite clear. However it still seems awkward to write an explicit formula for a bijective function $f: \N \to \N \times \N$. There is a slightly slicker way. Define an injective function $f: \N \times \N \to \N$. Then the proposition shows that $\N \times \N$ is countable. (apply to $S = \image(f)$.)
+		\begin{align*}
+		f(k,n) = 2^k 3^n
+		\end{align*}
+		$f$ is injective by unique factorization.
+	\end{proof}
+\end{nex}
+
+\begin{pp}
+	$\Q$ is countable.
+	\begin{proof}
+		\begin{align*}
+		\Q \subset \Z \times \Z \backslash \{0 \} \\
+		\left[ \frac p q \right] \mapsto \frac m n \sim \frac p q~ \text{in lowest terms with } n>0
+		\end{align*}
+		and $\Z \times (\Z \backslash \{0 \}$ is countable.
+	\end{proof}
+\end{pp}
+
+\begin{tm}
+	$\R$ is not countable.
+\end{tm}
+
+Some infinite sets are bigger than others
+
+\begin{proof}
+	Suppose for contradiction that one could make a list of all real numbers. Then it would look like this:
+	\begin{align*}
+	x_1 = a_1 . a_{11} a_{12} a_{13} \dots \\
+	x_2 = a_2 . a_{21} a_{22} a_{23} \dots \\
+	x_3 = a_3 . a_{31} a_{32} a_{33} \dots \\
+	\dots
+	\end{align*}
+	where $a_1, a_2, a_3, \dots \in \Z$ and $a_11, \dots, a_{kn} \dots \in \{ 0,1,2 \dots, 9 \}$. We produce a real number $x \in \R$ which is not on the list. 
+	
+	Pick $b_1 \in \Z b_1 \neq a_1$ \\
+	Pick $c_1 \in \{ 0,1,2 \dots, 8 \} c_1 \neq a_{21}$ \\
+	Pick $c_2 \in \{ 0,1,2 \dots, 8 \} c_2 \neq a_{32}$ \\
+	and so on.
+	Take 
+	\begin{align*}
+	x = b_1 . c_1 c_2 c_3 \dots
+	\end{align*}
+\end{proof}
+
+
+
+
+
+
+

@@ -1,0 +1,198 @@
+
+
+% Office hours mondays 17:00 Huxley 673
+\section{Sets}
+\begin{df}
+A \emph{set} $S$ is a collection of objects (called \emph{elements} of the set). If $x$ is an \emph{element} of $S$ let us write $x \in S$ otherwise $x \notin S$.
+\end{df}
+\begin{rk}
+The order of the elements or any repetition is unimportant.
+\end{rk}
+\begin{ex} \qquad 
+$\displaystyle \{1,3 \} = \{ 3,1,1 \}$
+\end{ex}
+\begin{df}
+For two sets $S$ and $T$ let us write $S \subseteq T$ ($S$ is a \emph{subset} of in $T$) if 
+\begin{align*}
+x \in S \Rightarrow x \in T.
+\end{align*}
+\end{df}
+
+\begin{df}
+$S=T$ iff $S \subseteq T$ and $T \subseteq S$.
+\end{df}
+
+\begin{ax} \emph{Foundation Axiom} 
+\begin{align*}
+S \notin S
+\end{align*}
+\end{ax}
+
+\begin{rk}
+Nonetheless, elements can be sets.
+\end{rk}
+
+\begin{df}
+$\emptyset$ is the set with no elements.
+\end{df}
+
+\begin{pr}
+$\emptyset \subseteq S$ and $S \subseteq S$ for all sets S
+\end{pr}
+
+\subsection{Set Operators}
+
+\def\firstcircle{(0,0) circle (1.5cm)}
+\def\secondcircle{(0:2cm) circle (1.5cm)}
+
+\colorlet{circle edge}{black!60}
+\colorlet{circle area}{black!30}
+
+\tikzset{filled/.style={fill=circle area, draw=circle edge, thick},
+	outline/.style={draw=circle edge, thick}}
+
+
+\begin{df}
+The \emph{intersection} $S \cap T$ of two sets $S$ and $T$ is 
+\begin{align*}
+\{ x | ~ x \in S ~\text{and}~ x \in T \}.
+\end{align*} 
+\end{df}
+\begin{df}
+The \emph{union} $S \cup T$ of two sets $S$ and $T$ is 
+\begin{align*}
+\{ x | ~ x \in S ~\text{or}~ x \in T \}.
+\end{align*} 
+\end{df}
+\begin{df}
+The \emph{difference} $S \backslash T$ of two sets $S$ and $T$ is 
+\begin{align*}
+\{ x | ~ x \in S ~\text{and}~ x \not\in T \}.
+\end{align*} 
+\end{df}
+\begin{df}
+	The \emph{symmetric difference} $S \triangle T$ of two sets $S$ and $T$ is 
+	\begin{align*}
+	\{ x | ~ x \in S ~\text{or}~ x \in T ~\text{but not both} \}.
+	\end{align*} 
+\end{df}
+	\begin{df}
+		The complement $A^C$ of a set $A$ with regard to a set $\Omega, A \subseteq \Omega$ is
+		\begin{align*}
+		\{ x\in \Omega| ~x \notin A \}
+		= \Omega \backslash A.
+		\end{align*}
+	\end{df}
+	\begin{rk}
+		The complement is only used when the reference set $\Omega$ is clear.
+	\end{rk}
+\begin{figure}[h]
+	\caption{The operations on sets can be visualized by \emph{Venn diagrams}. In order to understand a set-related problem, in some cases it may be helpful to draw a Venn Diagram.}
+	%A intersection B
+	\centering
+	\begin{tikzpicture}
+	\begin{scope}
+	\clip \firstcircle;
+	\fill[filled] \secondcircle;
+	\end{scope}
+	\draw[outline] \firstcircle node {$A$};
+	\draw[outline] \secondcircle node {$B$};
+	\node[anchor=south] at (current bounding box.north) {$A \cap B$};
+	\end{tikzpicture}
+	\quad
+	%A union B
+	\begin{tikzpicture}
+	\draw[filled] \firstcircle node {$A$}
+	\secondcircle node {$B$};
+	\node[anchor=south] at (current bounding box.north) {$A \cup B$};
+	\end{tikzpicture}
+	\quad
+	%A without B
+	\begin{tikzpicture}
+	\begin{scope}
+	\clip \firstcircle;
+	\draw[filled, even odd rule] \firstcircle node {$A$}
+	\secondcircle;
+	\end{scope}
+	\draw[outline] \firstcircle
+	\secondcircle node {$B$};
+	\node[anchor=south] at (current bounding box.north) {$A \backslash B$};
+	\end{tikzpicture}
+	\\
+	%B without A
+	\begin{tikzpicture}
+	\begin{scope}
+	\clip \secondcircle;
+	\draw[filled, even odd rule] \secondcircle node {$B$}
+	\firstcircle;
+	\end{scope}
+	\draw[outline] \secondcircle
+	\firstcircle node {$A$};
+	\node[anchor=south] at (current bounding box.north) {$B \backslash A$};
+	\end{tikzpicture}
+	\quad
+	%A symmetric difference B
+	\begin{tikzpicture}
+	\draw[filled, even odd rule] \firstcircle node {$A$}
+	\secondcircle node{$B$};
+	\node[anchor=south] at (current bounding box.north) {$A \triangle B$};
+	\end{tikzpicture}
+	\quad
+	%A complement
+	\begin{tikzpicture}[even odd rule,rounded corners=2pt]
+	\filldraw[filled] (0,0) rectangle (5,3.2) node[anchor=south] at (current bounding box.north) {$A^C$}
+	(1.6,1.6) circle (1.5cm) node {$A$};
+	\draw (4, 1.6) node {$\Omega$};
+	\end{tikzpicture}
+\end{figure}
+
+Some sets we will work with in this course are:
+\begin{align*}
+\mathbb N & = \{0, 1, 2, \dots \} \\
+\mathbb Z & = \{0, 1, -1, 2, -2 \dots \} \\
+\mathbb Q & = \left. \left\{ \frac p q \right| ~ p \in \mathbb N, q \in \mathbb Z \backslash \{0\} \right\} \\
+\R & ~\text{reals} \\
+\mathbb C & ~\text{complex numbers}
+\end{align*}
+
+
+\subsection{Intervals in $\R$}
+\begin{df}
+If $a,b \in \R, ~a \le b$, then
+\begin{align*}
+[a,b] & = \{ t \in \R| ~a \le t \le b \} \\
+(a,b) & = \{ t \in \R| ~a < t < b \} \\
+[a,b) & = \{ t \in \R| ~a \le t < b \} \\
+(a,b] & = \{ t \in \R| ~a < t \le b \} \\
+[a, \infty) & = \{ t \in \R| ~a < t \} \\
+( -\infty ,b] & = \{ t \in \R| ~t \le b \}.
+\end{align*}
+\end{df}
+
+
+\subsection{Infinite Unions and Intersections}
+\begin{df}
+Suppose that, for all $n \in \mathbb N$, we are given a set $A_n$. Define
+\begin{align*}
+\bigcup_{n=a}^\infty A_n & = \left\{ x | ~\text{there exists a }n\in \mathbb N, n\ge a ~\text{ such that } x \in A_n \right\} \\
+\bigcap_{n=a}^\infty A_n & = \{ x | ~\text{for all }n\in \mathbb N, n\ge a ~ \text{such that } x \in A_n \} .
+\end{align*}
+\end{df}
+
+\begin{ex}
+\begin{align*}
+\bigcup_{n=1}^\infty \left[0,1-\frac 1 n \right] & = [0,1 ) \\ 
+\bigcap_{n=1}^\infty \left(1- \frac 1 n, 1 + \frac 1 n \right) & = \{1\}
+\end{align*}
+\end{ex}
+
+
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 

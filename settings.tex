@@ -1,0 +1,69 @@
+
+
+\author{David Burgschweiger}
+\title{M1F Notes}
+
+\geometry{verbose,a4paper,tmargin=2.5cm,bmargin=2.5cm,lmargin=2cm,rmargin=2cm}
+
+\pagestyle{fancy}
+\lhead{M1F notes}
+\rhead{\thepage}
+\cfoot{}
+
+\setlength{\lightrulewidth }{0.01em}
+\setlength{\heavyrulewidth }{0.1em}
+
+\theoremstyle{definition}
+
+\newcounter{defi}[subsection]
+\newcounter{rema}[defi]
+
+
+\newtheorem{lm}{Lemma}[section]				% important
+\newtheorem{ex}{Example\stepcounter{rema}}	%important
+\newtheorem{df}{Definition \stepcounter{defi}}[section] %important
+\newtheorem{tm}{Theorem}[section] %important
+\newtheorem*{rk}{Remark\stepcounter{rema}} %important
+\newtheorem*{ec}{Exercise} %important
+\newtheorem{ax}{Axiom}[section] %important
+\newtheorem{cl}{Corollary}[section]
+\newtheorem{pp}{Proposition}
+\newtheorem*{nt}{Notation}
+\newtheorem*{qu}{Question}
+\newtheorem{pr}{Property}[defi]
+\newtheorem{rt}{Result}[subsection]
+
+\newenvironment{nex}{\noindent\ignorespaces\begin{ex} \begin{itemize}}{\end{itemize}\end{ex}}
+\newenvironment{itemal}{\hfill \begin{math} \begin{aligned}[t]} {\end{aligned} \end{math} \hfill\null\\ \\}
+\newenvironment{an}{\noindent\ignorespaces\textit{Answer.}}{\hfill \qed}
+
+
+
+
+
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\C}{\mathbb C}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\hcf}{\operatorname{hcf}}
+\newcommand{\ord}{\operatorname{ord}}
+\newcommand{\dom}{\operatorname{dom}}
+\newcommand{\image}{\operatorname{image}}
+\newcommand{\range}{\operatorname{range}}
+\newcommand{\id}{\operatorname{id}}
+
+
+
+%tables
+\newcolumntype {+}{>{\global\let\currentrowstyle\relax}}
+\newcolumntype {^}{>{\currentrowstyle}}
+\newcommand{\rowstyle}[1]{\gdef\currentrowstyle {#1} %
+	#1\ignorespaces
+}
+\newcolumntype{Z}{>{\centering\arraybackslash}X}
+
+% \newenvironment{}{begdef}{enddef}
+
+%\marginpar{Text} for Dates

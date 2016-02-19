@@ -1,0 +1,466 @@
+\section{Proofs}
+\subsection{Elements of propositional calculus}
+\begin{df}
+A \emph{statement} (proposition) is an assertion that can be either true (T) or false (F).
+\end{df}
+
+\begin{rk}
+In maths such an assertion usually takes the form:
+"If such and such assumptions are made, then we can infer such and such conclusions."
+ \end{rk}
+
+\begin{ex} 
+\begin{itemize}
+\item
+$n  = 3$
+\item
+$(A+B)^2  = A^2 + 2AB + B^2$
+\item
+If it $n^2$ is odd, then $n$ is odd too.
+\item
+If it rains, then it is cloudy.
+\item
+For all real numbers greater than or equal to 0 there exists a square root. 
+\end{itemize}
+\end{ex}
+
+
+
+\begin{df}
+A \emph{proof} is a chain of statements linked by logical implications (inferences) that establish the truth of the last statement. In the course of the proof one is allowed to "call up" 
+\begin{itemize}
+\item
+ assumptions that are made,
+\item
+ statements proven previously,
+\item
+ axioms (statements that are generally accepted and never proven).
+\end{itemize}
+\end{df}
+
+
+
+"Grammar elements" of mathematical statements are Quantifiers:
+\begin{center}
+\begin{tabularx}{.65\textwidth}{XXX}
+\toprule
+Type & Sign & Meaning \\
+\toprule
+Existential & $\exists$ & there exists \\
+& $\exists_1$ & there exists a unique \\
+\midrule
+Universal & $\forall$ & for all \\
+\midrule
+& $:$, $|$ & such that \\
+\bottomrule
+\end{tabularx}
+\end{center}
+Ways to form new statements from old ones are:
+\begin{itemize}
+\item
+If $P$ is a statement then $\overline P$ "non-P" is the statement which is true if $P$ is false and false if $P$ is true.
+\item
+If $P$ and $Q$ are statements then we can form:
+\begin{center}
+\begin{tabularx}{.6\textwidth}{XX}
+\toprule
+Sign & Meaning \\
+\toprule
+$P \wedge Q$, $P\& Q$ & $P$ and $Q$. \\
+$P \vee Q$ & Either $P$ or $Q$ or both. \\
+$P ~\underline{\vee} ~Q$ & Either $P$ or $Q$ but not both. \\ 
+\midrule
+$P \Rightarrow Q$ & If $P$ then $Q$. \\
+$P \Leftarrow Q$ & If $Q$ then $P$. \\  
+$P \Leftrightarrow Q$ & $P$ if and only if $Q$. \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\end{itemize}
+
+\begin{rk}
+$P \Rightarrow Q$ means any of the following:
+\begin{itemize}
+\item
+If $P$ then $Q$.
+\item
+$Q$ if $P$.
+\item
+$P$ is true only if $Q$ is true.
+\item
+$P$ only if $Q$.
+\item
+$P$ is sufficient for $Q$.
+\item
+$Q$ is necessary for $P$.
+\item
+If $Q$ is false then $P$ is false.
+\item
+$\overline{Q} \Rightarrow \overline{P}$
+\end{itemize}
+Similarly, $P \Leftrightarrow Q$ means any of the following:
+\begin{itemize}
+\item
+$(P \Rightarrow Q) \wedge (Q \Rightarrow P)$
+\item
+$P$ if and only if $Q$.
+\item
+$P$ is necessary and sufficient for $Q$.
+\end{itemize}
+\end{rk}
+
+The rigorous definition of $P \wedge Q$, $P \Rightarrow Q$ can be made through a truth table.
+
+\begin{df}
+$P \wedge Q$ is defined by:
+\begin{center}
+
+\begin{tabularx}{.25\textwidth}{XXX}
+\toprule
+$P$ & $Q$ & $P \wedge Q$ \\
+\toprule
+T & T & T \\
+T & F & F \\
+F & T & F \\
+F & F & F \\
+\bottomrule
+\end{tabularx}
+\end{center}
+\end{df}
+\begin{df}
+Also, $P \Rightarrow Q$ is defined by:
+\begin{center}
+\begin{tabularx}{.27\textwidth}{XXX}
+\toprule
+$P$ & $Q$ & $P \Rightarrow Q$ \\
+\toprule
+T & T & T \\
+T & F & F \\
+F & T & T \\
+F & F & T \\
+\bottomrule
+\end{tabularx}
+\end{center}
+\end{df}
+
+\begin{ex}
+The statement 
+"If $x \in \{n \in \mathbb N | ~n^2 <0 \}$, then $x$ is a sheep."
+is true as well as the statement
+"If $x \in \{n \in \mathbb N | n^2 <0 \}$, then $x$ is not a sheep."
+\end{ex}
+\subsection{Inference rules}
+\begin{ex}
+\emph{Premise 1.} If it is raining then it is cloudy. \\
+\emph{Premise 2.} It is raining. \\
+\emph{Conclusion.} It is cloudy. \\
+
+We can write this more abstractly as follows: \\
+$P$: it is raining \\
+$Q$: it is cloudy 
+
+In this form: \\
+\emph{Premise 1.} $P \Rightarrow Q$ \\
+\emph{Premise 2.} $P$ \\
+\emph{Conclusion.} $Q$
+\end{ex}
+
+This is an example of an inference rule which we write like this:
+\begin{align*}
+((P \Rightarrow Q) \quad \wedge \quad P) \qquad \Rightarrow \qquad Q
+\end{align*}
+
+There are other inference rules:
+\begin{align*}
+\left(\left(P \Rightarrow Q\right) \quad \wedge \quad \left(Q \Rightarrow R\right)\right) \qquad & \Rightarrow \qquad \left(P \Rightarrow R\right) \\
+\left(\left(P \vee Q\right) \quad \wedge \quad \overline P \right) \qquad & \Rightarrow \qquad Q \\
+\left(P \wedge Q\right)  \qquad &  \Rightarrow \qquad P \\
+\left(\left(P \Rightarrow Q\right) \quad \vee \quad \left(P \Rightarrow R\right)\right)  \qquad &  \Rightarrow \qquad (P \Rightarrow \left(Q \vee R\right)) \\
+\left(\left(P \vee Q\right) \quad \wedge \quad \left(P \Rightarrow \left(P \wedge Q\right)\right)\right)  \qquad &  \Rightarrow \qquad \left(R  \Rightarrow R\right) \\
+\left(\left(P \Rightarrow Q\right) \quad \wedge \quad \left(P \Rightarrow \overline Q\right)\right) \qquad &  \Rightarrow  \qquad \overline{P} \\
+(P \quad \wedge \quad (Q \vee R)) \qquad &  \Rightarrow \qquad  (P \wedge Q) \quad \vee \quad (P \wedge R)
+\end{align*}
+
+\begin{ec}
+ Proof that 
+\begin{align*}
+\forall n \in \mathbb N \qquad n^2 \text{odd} \quad \Rightarrow \quad n~ \text{odd}  .
+\end{align*}
+\end{ec}
+
+\begin{ex}
+Is the following a valid argument: 
+\begin{enumerate}
+\item
+If a movie is not worth seeing, then it is not made in the UK.
+\item
+A movie is worth seeing only if Prof Corti reviews it.
+\item
+"The Maths Graves" was not not reviewed by Prof Corti.
+\item
+Therefore, "The Maths Graves" is not made in the UK. 
+\end{enumerate}
+
+In order to determine this, let us rewrite the argument in a more formal way:
+\begin{center}
+\begin{tabularx}{.6\textwidth}{XX}
+\toprule
+Variable & Meaning \\
+\toprule
+$M$ & the set of all movies \\
+$W(x)$ & "$x$ is worth seeing." \\
+$UK(x)$ & "$x$ is made in the UK." \\
+$C(x)$ & "Professor Corti reviews $x$." \\
+$m$ & "The Maths Games" $\in M$ \\
+\bottomrule
+\end{tabularx}
+\end{center}
+Now the argument can be expressed as:
+\begin{align*}
+ & \forall x \in M: & \overline{W(x)} & \Rightarrow \overline{UK(x)} \tag 1 \\
+ & \forall x \in M: & W(x) & \Rightarrow C(x) \tag 2 \\
+ & & \overline{C(m)} \tag 3\\
+ & ((1) \wedge (2) \wedge (3)) \Rightarrow & \overline{UK(x)}
+\end{align*}
+Yes it is a valid argument. Indeed, it is the same as:
+\begin{align*}
+& \forall x \in M: & UK(x) & \Rightarrow W(x) \\
+& \forall x \in M: & W(x) & \Rightarrow C(x)
+\end{align*}
+Then you say:
+\begin{align*}
+& \forall x & \in M \overline{C(x)} & \Rightarrow \overline{UK(x)} \\
+& & \overline{C(m)} \\
+& & & \Rightarrow \overline{UK(m)}
+\end{align*}
+\end{ex}
+
+
+\begin{rt}
+What can we learn from this?
+If we want to be understood, we have to learn to present our arguments better.
+For instance, try to put everything in the positive. Use "if then" throughout.
+A better way of writing would be:
+\begin{enumerate}
+\item
+If $x$ is made in the UK, then $x$ is worth seeing.
+\item
+If $x$ is worth seeing then Prof Corti reviews it.
+\item
+Prof Corti did not review $m$.
+\item
+Therefore $m$ is not made in the UK.
+\end{enumerate}
+\end{rt}
+
+\subsection{Proof-Practice}
+\begin{tm}
+Let $A$, $B$, $C$, $\Omega$ be sets with $A,B \in \Omega$. Then:
+\begin{align*}
+A \cap (B \cup C) & = (A \cap B) \cup (A\cap C) \tag{1}\\
+A \cup (B \cap C) & = (A \cup B) \cap (A\cup C) \tag 2\\
+(A \cup B)^C & = A^C \cap B^C \tag 3 \\
+(A \cap B)^C & = A^C \cup B^C \tag 4
+\end{align*}
+\end{tm}
+\begin{ec}
+Draw Venn diagrams of these statements.
+\end{ec}
+\begin{proof}
+Consider (1). We show first:
+\begin{align*}
+A \cap ( B \cup C) \subseteq (A \cap B) \cup (A \cap C)
+\end{align*}
+Suppose that $x \in A \cap (B \cup C)$, then $x \in A$ and $x \in B\cup C$.
+That means:
+\begin{align*}
+& & x & \in A  \quad \wedge \quad ( x \in B \vee x \in C) \\
+& \Leftrightarrow & x & \in A \cap B \quad \vee \quad x \in A \cap C \\
+& \Leftrightarrow & x  & \in (A \cap B) \cup (A \cap C)
+\end{align*} 
+This shows $\subseteq$.
+Now we show:
+\begin{align*}
+A \cap (B \cup C) \supseteq (A\cap B) \cup (A \cap C)
+\end{align*}
+Suppose $x \in (A\cap B) \cup (A \cap C)$, then $x \in A \cap B$ or $x \in A \cap C$. We now distinguish between two cases:
+\begin{enumerate}
+\item
+$x \in A \cap B$. Then $x \in A$ and $x \in B$. Therefore, $x \in A$ and $x \in B \cup C$. Hence, $x \in A \cap (B \cup C)$.
+\item
+$x \in A \cap C$. Then $x \in A$ and $x \in C$. Therefore, $ x \in A$ and $x \in B \cup C$. Hence, $ x \in A \cap (B \cup C)$.
+\end{enumerate}
+
+\begin{rk}
+We split the proof of $C$ in two cases. In doing so we used the inference rule:
+\begin{align*}
+((P \vee Q) \wedge (P \Rightarrow R) \wedge (Q \Rightarrow R)) \Rightarrow R
+\end{align*}
+\end{rk} 
+Please finish the proof of the other statements in your own.
+\end{proof}
+
+
+\begin{ax} \emph{Archimedeon Axiom}
+\begin{align*}
+\forall r \in \R~ \exists n \in \N : \quad n>r
+\end{align*}
+\end{ax}
+
+\begin{lm}
+\begin{align*}
+\forall a,x \in \R  \qquad \left(\forall n \in \N, n\geq 1 \quad x \geq a - \frac 1 n \right) \quad \Rightarrow \quad x \geq a
+\end{align*}
+\end{lm}
+\begin{proof}
+We argue by contradiction. Hence, we want to show
+\begin{align*}
+\left(\exists n \in \N, n\geq 1: \quad x < a - \frac 1 n \right) \quad \Leftarrow \quad x \leq a.
+\end{align*}
+By the Archimedeon Axiom
+\begin{align*}
+\exists n: \quad n> \frac 1 {a-x}.
+\end{align*}
+And then also
+\begin{align*}
+\frac 1 n < a-x .
+\end{align*}
+Therefore
+\begin{align*}
+x < a - \frac 1 n.
+\end{align*}
+\end{proof}
+
+\begin{pp}
+\begin{align*}
+\bigcup_{n=1}^\infty \left[0,1-\frac 1 n \right] & = [0,1) \tag 1\\ 
+\bigcap_{n=1}^\infty \left(1- \frac 1 n, 1 + \frac 1 n \right) & = \{1\} 
+\tag 2
+\end{align*}
+\end{pp}
+
+\begin{proof}
+(2)  \\
+By definition 
+\begin{align*}
+\bigcap_{n=1}^\infty A_n = \{ a| ~\forall n,  a \in A_n \}.
+\end{align*}
+Then
+\begin{align*}
+L= \bigcap_{n=1}^\infty  \left( 1- \frac 1 n, 1+ \frac 1 n\right) = \left\{ x \in \R \left|~ \forall n \in \N, ~ 1 -\frac 1 n < x < 1 + \frac 1 n \right\} \right. .
+\end{align*}
+Clearly $1 \in L$. This proofs $\supseteq$.
+
+No we are going to prove $\subseteq$. We need to show
+\begin{align*}
+\left(\forall n \in \N, \quad 1- \frac 1 n < x < 1 +\frac 1 n \right) \quad \Rightarrow \quad x=1.
+\end{align*}
+By the lemma, $x \geq 1$. There is a similar lemma that states
+\begin{align*}
+\left( \forall n, \quad x \leq 1 + \frac 1 n \right) \quad \Rightarrow \quad x \leq 1 .
+\end{align*}
+So in fact $x \geq 1$ and $x \leq 1$. Thus $x=1$. This shows $\subseteq$.\\
+(1) \\
+Recall that by definition
+\begin{align*}
+\bigcup_{n=1}^\infty A_n = \{a| ~ \exists n : ~ a \in A_n \} .
+\end{align*}
+It is easy to see
+\begin{align*}
+\bigcup_{n=1}^\infty \left[ 0, 1 - \frac 1 n \right) \subseteq [0,1) 
+\end{align*}
+Indeed if
+\begin{align*}
+\exists n : \quad 0 \leq x \leq 1 -\frac 1 n,
+\end{align*}
+then
+\begin{align*}
+0 \leq x < 1.
+\end{align*}
+This shows $\supseteq$. Next we show $\subseteq$. This means exactly
+\begin{align*}
+(0 \leq x < 1) \Rightarrow \left( \exists n: ~ 0 \leq x \leq 1 - \frac 1 n \right).
+\end{align*}
+By the Archimedeon axiom 
+\begin{align*}
+\exists n: \quad n > \frac 1 {1-x}.
+\end{align*}
+Hence $\frac 1 n < 1-x$ and then $x< 1-\frac 1 n$.
+\end{proof}
+
+
+
+\begin{tm}
+	\begin{align*}
+	\forall n \in \N \qquad n^2~\text{odd} \quad \Rightarrow \quad n~\text{odd}
+	\end{align*}
+\end{tm} 
+\emph{Flawed proof.} If $n$ is odd then $n = 2k+1$ for some $k \in \N$ and then 
+\begin{align*}
+n^2 & = (2k+1)^2 \\
+ & = 4k^2 + 4k +1 \\
+ & = 2 \left( 2k^2 +2k \right) +1
+\end{align*}
+So $n^2$ is odd.
+\begin{proof}
+We need to take the following statement for granted, which will be proven later in the document:
+\begin{align*}
+\forall n \in \N\qquad  \exists k \in \N: ~ n= 2k \quad \vee \quad \exists k \in \N: ~ n = 2k+1
+\end{align*}
+Assuming that, we argue by contradiction:
+\begin{align*}
+n \operatorname{even} \quad & \Rightarrow \quad n^2 \operatorname{even} \\
+n=2k \quad & \Rightarrow \quad n^2 = 2 \left(2k^2 \right)
+\end{align*}
+\end{proof}
+
+
+
+
+\subsection{Dis-Proving}
+The negation $\overline{P}$ of a statement $P$ can be formed with the help of the two following rules:
+\begin{enumerate}
+	\item 
+	\begin{itemal}
+	P & = ( \forall x \in A \quad Q(x)) \\
+	\Rightarrow \qquad \overline P & = \left( \exists x \in A\quad \overline{Q(x)} \right)
+	\end{itemal}
+	\item
+	\begin{itemal}
+	P & = ( \exists x \in A \quad Q(x) ) \\
+	\Rightarrow \qquad \overline P & = \left(\forall x \in A \quad \overline{Q(x)} \right)
+	\end{itemal}
+\end{enumerate}
+
+\begin{ec}
+Show that Rule 2 is the same as Rule 1.
+\end{ec}
+\begin{rk}
+An element $a \in A$ such that $\overline{Q(a)}$ is called a counterexample to the statement
+\begin{align*}
+(\forall x \in A, \quad Q(x))
+\end{align*}
+Indeed the very existence of this example $a \in A$ shows that $P$ is false (it "counters" P).
+\end{rk}
+A typical exam question is:
+\begin{qu}
+	Prove or disprove the following statement: 
+	
+	If $p\in \mathbb N$ is prime then $\exists a,b \in \mathbb Z: ~p = a^2+b^2$
+\end{qu}
+
+
+\begin{an}
+This statement is false. Counterexample: 3
+\begin{align*}
+P & = \left(\forall p \in \{n \in \mathbb N|~ n \operatorname{prime}\}: \quad \left(\exists (a,b) \in \mathbb Z^2: p = a^2+b^2\right)\right) \\
+\Leftrightarrow \qquad \overline P & = \left(\exists p \in \{n \in \mathbb N|~ n \operatorname{prime}\}: \quad \overline{\left(\exists (a,b) \in \mathbb Z^2: p = a^2+b^2\right)} \right) \\
+\Leftrightarrow \qquad \overline P & = \left(\exists p \in \{n \in \mathbb N|~ n \operatorname{prime}\}: \quad \left(\forall (a,b) \in \mathbb Z^2: p \neq a^2+b^2 \right) \right)
+\end{align*}
+We prove $\overline P$ thus we have to name a particular prime. We choose $p=3$ and claim
+\begin{align*}
+\forall a,b \in \mathbb Z: \quad a^2+b^2 \neq 3.
+\end{align*}
+Suppose for contradiction that for some $a,b\in \mathbb Z$, $a^2+b^2=3$. Note that $a^2,b^3 \geq 0$ so both $a^2,b^2 \leq 3$ This means that $|a|,|b| \leq 1$ but then $a^2,b^2 \leq 1$ and $a^2+b^2 \leq 2$. 
+\end{an}
